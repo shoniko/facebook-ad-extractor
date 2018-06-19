@@ -54,7 +54,6 @@ argparser.add_argument(
     required=True)
 
 
-
 def _main_(args):
 
     options = webdriver.ChromeOptions()
@@ -71,7 +70,6 @@ def _main_(args):
 
     dpi = driver.execute_script("return window.devicePixelRatio;")
     root = args.rootDir
-
 
     body = driver.find_element_by_tag_name("body")
     cur_example = 49
@@ -124,7 +122,8 @@ def _main_(args):
                 if (len(news_feed[i].find_elements_by_css_selector("input[data-next-question-id]")) != 0):
                     isSponsored = True
 
-                listOfObjects[pos_in_list] = [location, size, isSponsored, offset]
+                listOfObjects[pos_in_list] = [
+                    location, size, isSponsored, offset]
                 pos_in_list += 1
             except StaleElementReferenceException as identifier:
                 failure = True
@@ -163,7 +162,7 @@ def _main_(args):
             xmax = (location["x"] + size["width"])
             ymax = (location["y"] + size["height"] - offset)
             truncated = False
-            fbHeaderHeight = 42 # Yes, 42!
+            fbHeaderHeight = 42  # Yes, 42!
             if (size["width"]) == 0 or (size["height"]) == 0 or (ymax <= 0):
                 continue
             if ymin > hsize:
@@ -246,4 +245,3 @@ def _main_(args):
 if __name__ == '__main__':
     args = argparser.parse_args()
     _main_(args)
-
