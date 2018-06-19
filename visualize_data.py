@@ -12,7 +12,8 @@ argparser = argparse.ArgumentParser(
 argparser.add_argument(
     '-f',
     '--file',
-    help='path to annotation file')
+    help='path to annotation file',
+    required=True)
 
 curFilePath = ""
 root = Tk()
